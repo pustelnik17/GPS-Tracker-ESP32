@@ -1,0 +1,128 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/HJJKJACKOWSKI/gps/1.0.0
+  - description: SwaggerHub API Auto Mocking
+    url: http://10.103.29.107:8080
+info:
+  version: "1.0.0"
+  title: ESP32gpsTracker
+  description: The API for the Gps Tracker project
+paths:
+  /device/getDeviceConfiguration/uid:
+    get:
+      tags:
+        - Device
+      description: get heartbeatIntervals, postingIntervals, range
+      operationId: getDevices
+      parameters:
+        - in: query
+          name: uid
+          description: uid
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: All the devices
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+  /arduino/localization/uid:
+    post:
+      description: sends information about localization
+      tags:
+        - Device
+      operationId: localization
+      responses:
+        '200':
+          description: success
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Localization'
+  /arduino/heartbeat/uid:
+    post:
+      description: sends information about heartbeat
+      tags:
+        - Device
+      operationId: heartbeat
+      responses:
+        '200':
+          description: success
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Heartbeat'
+  /arduino/fencing/uid:
+    post:
+      description: sends information about fencing
+      tags:
+        - Device
+      operationId: Fencing
+      responses:
+        '200':
+          description: success
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Fencing'
+components:
+  schemas:
+    Fencing:
+      type: object
+      properties:
+        fencingStatus:
+          type: boolean
+          example: true
+        alarmStatus:
+          type: string
+          enum:
+            - NO_ALARM
+            - FENCING_ALARM
+            - NO_GPS_CONNECTION
+          example: NO_ALARM
+    Heartbeat:
+      type: object
+      properties:
+        status:
+          type: boolean
+          example: true
+    Localization:
+      type: object
+      properties:
+        status:
+          type: boolean
+          example: true
+        lon:
+          type: number
+          format: double
+          example: 15
+        lat:
+          type: number
+          format: double
+          example: 50.6
+        alarm:
+          type: boolean
+          example: false
+        arduino_time:
+          type: integer
+          example: 1690218372
+    Device:
+      type: object
+      properties:
+        heartbeat_rate:
+          type: integer
+          example: 60
+        interval:
+          type: integer
+          example: 30
+        time:
+          type: integer
+          example: 1690218372
