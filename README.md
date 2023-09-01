@@ -18,4 +18,4 @@ Aplikacja napisana została z celem użycia jej na urządzeniu ESP32, zmieniają
 
 Do poprawnego działania aplikacji niezbędne jest podłączenie urządzenia do backendu poprzez OpenAPI zawarte w dokumentacji API urządzenia.
 
-Kod do BE https://github.com/pustelnik17/GPS-tracker-ESP32
+Kod do BE https://github.com/PiotrPecuch/GPSTracker
