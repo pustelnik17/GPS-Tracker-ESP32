@@ -27,8 +27,7 @@ void setup(){
   Fence fencing;
   PostingHandler postingHandler;
   Device device(1);
-  // Connection connection("Ekoenergetyka", "%ekoenergetyka$", "10.103.29.107");
-  Connection connection("Testgps", "12345678", "192.168.25.68");
+  Connection connection("", "", ""); //SSID, PASS, IP
   connection.RefreshWiFiConnection();
   postingHandler.Calibration(device, connection, fencing);
   while(true){
