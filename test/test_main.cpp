@@ -1,13 +1,8 @@
 #include <unity.h>
 #include <GpsTracker.hpp>
-#define SSID "Ekoenergetyka"
-#define PASS "%ekoenergetyka$"
-// #define SSID "12345678"
-// #define PASS "12345678"
-
-// server
-// #define SERVER_IP "192.168.43.68"
-#define SERVER_IP "10.103.29.107"
+#define SSID ""
+#define PASS ""
+#define SERVER_IP "xxx.xxx.xxx.xxx"
 
 #pragma region GetDistanceOnASphereTest
 void GetDistanceOnASphereTest1() {
